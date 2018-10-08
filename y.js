@@ -18,9 +18,9 @@
         if (window.document.r && !isPushState) data.r = window.document.referrer;
         if (window.innerWidth) data.w = window.innerWidth;
         var request = new XMLHttpRequest();
-        request.open('POST', d + '/x', true);
+        request.open('POST', d + '/y', true);
         request.setRequestHeader('Content-Type', 'text/plain; charset=UTF-8');
-        request.send(JSON.stringify(data));
+        request.send(btoa(JSON.stringify(data)));
       }
       if (window.history && window.history.pushState && Event && window.dispatchEvent) {
         var stateListener = function(type) {

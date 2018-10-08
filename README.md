@@ -2,7 +2,7 @@
 
 yanalytics is a cookie-less, self-hosted, open-source alternative to Google Analytics
 
-### Usage
+### Self Host the yanalytics Server
 
 Starts analytics server
 
@@ -10,7 +10,7 @@ Starts analytics server
 PORT=80 HOST=your-yanalitics-server.com go run main.go
 ```
 
-Add yanalitics to your website
+### Add yanalitics to your website
 
 ```html
 ...
@@ -27,7 +27,7 @@ Add yanalitics to your website
 yanalytics is composed of a javascript tracker file and a http endpoint where the js tracker send http requests
 The js file is returned on-demand by the yanalytics server which forces the browser to cache it automatically
 
-#### Requesting the JavaScript tracker file
+### Requesting the JavaScript tracker file
 
 This happens every time the yanalytics script tag is added to any website. It calls `your-yanalytics-server.com/y.js`
 
@@ -45,4 +45,11 @@ Hopefully the browser has cached the file and every time the js tracker gets exe
 
 ### Tracking Page Views
 
-Once the JavaScript tracker is downloaded it get executed and send an `XMLHttpRequest` to `your-yanalytics-server.com/y` which decoded the payload and tracks the page view event
+Once the JavaScript tracker is downloaded it get executed and send an `XMLHttpRequest` to `your-yanalytics-server.com/y` which decoded the payload and tracks the page view event.
+Example of Analytics Request
+
+```sh
+➜  yanalytics git:(master) ✗ PORT=8000 HOST=http://localhost:8000 go run main.go
+storing main.AnalyticsRequest{URL:"http://localhost:8080/", UserAgent:"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Safari/605.1.15", Source:"", Referrer:"", WindowWidth:(*int)(0xc0001420f8), UserID:"00a23b0f-ed16-4798-9b4f-472fc351950e"}
+storing main.AnalyticsRequest{URL:"http://localhost:8080/", UserAgent:"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Safari/605.1.15", Source:"", Referrer:"", WindowWidth:(*int)(0xc00010e118), UserID:"00a23b0f-ed16-4798-9b4f-472fc351950e"}
+```

@@ -15,7 +15,7 @@ import (
 
 const (
 	defaultPort = "7638"
-	defaultHost = "yanalytics.domain"
+	defaultHost = "http://yanalytics.domain"
 )
 
 // JsTemplate is used to render the js file
