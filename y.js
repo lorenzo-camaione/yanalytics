@@ -42,4 +42,4 @@
     } catch (e) {
         console.log(e);
     }
-  })(window, '%s', '%s');
+  })(window, '{{ .Host }}', '{{ .UserID }}');
