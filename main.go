@@ -91,7 +91,7 @@ func TrackPageView(w http.ResponseWriter, r *http.Request) {
 	}
 	var aRq AnalyticsRequest
 	json.Unmarshal([]byte(decodedStr), &aRq)
-	// store aRq
+	fmt.Printf("storing %#v\n", aRq)
 	w.WriteHeader(http.StatusOK)
 	return
 }
